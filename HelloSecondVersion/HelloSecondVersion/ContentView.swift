@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var clicked = false
+    
     @State var greeting:String = "Hello "
     @State var numberOfClicks = 0
     
