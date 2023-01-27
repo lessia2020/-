@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var greeting:String = "Hello "
-    @State var numberOfClicks = 0
+    @State var buttonIsClicked = false
+    //@State var numberOfClicks = 0
     
     let myBgColor = Color(red: 255/255, green: 251/255, blue: 245/255)
     let lightPurple = Color(red: 195/255, green: 172/255, blue: 208/255)
@@ -42,13 +43,21 @@ struct ContentView: View {
                 
             
             Button(action: {
+                if buttonIsClicked {
+                    buttonIsClicked = false
+                    greeting = "Hello"
+                } else {
+                    buttonIsClicked = true
+                    greeting = "Hi"
+                }
+             /*
                 numberOfClicks += 1
                 print(numberOfClicks)
                 if numberOfClicks  % 2 == 0 {
                     greeting = "Hello"
                 } else {
                     greeting = "Hi"
-                }
+                } */
             }, label: {
                 Text("Button")
                     .font(.callout)
