@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var greeting:String = "Hello "
-    @State var buttonIsClicked = false
+    @State var isButtonClicked = false
     //@State var numberOfClicks = 0
     
     let myBgColor = Color(red: 255/255, green: 251/255, blue: 245/255)
@@ -21,9 +21,6 @@ struct ContentView: View {
     var body: some View {
             
         VStack {
-                
-                //Spacer()
-            
                 ZStack {
                     Image(systemName: "heart")
                         .imageScale(.large)
@@ -43,13 +40,7 @@ struct ContentView: View {
                 
             
             Button(action: {
-                if buttonIsClicked {
-                    buttonIsClicked = false
-                    greeting = "Hello"
-                } else {
-                    buttonIsClicked = true
-                    greeting = "Hi"
-                }
+                getGreeting()
              /*
                 numberOfClicks += 1
                 print(numberOfClicks)
@@ -68,17 +59,23 @@ struct ContentView: View {
                 
             })
             .padding(.top, 100.0)
-            
-            
-              
+   
             Spacer()
-               
-                
-                
+      
             }
             myBgColor.ignoresSafeArea()
         }
-    
+        
+        func getGreeting() {
+        
+        if isButtonClicked {
+            isButtonClicked = !isButtonClicked
+            greeting = "Hello"
+        } else {
+            isButtonClicked = true
+            greeting = "Hi"
+        }
+    }   
 }
 
 struct ContentView_Previews: PreviewProvider {
